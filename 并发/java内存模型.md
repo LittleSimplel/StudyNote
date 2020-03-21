@@ -8,7 +8,7 @@
 
 #### 内存划分
 
-![jvm内存区域.png](http://ww1.sinaimg.cn/mw690/0062TeRXgy1gd1l9z51ngj30p80ho7en.jpg)
+![jvm内存区域.png](http://ww1.sinaimg.cn/large/0062TeRXgy1gd1oczumx6j30ih0d645f.jpg)
 
  1. **程序计数器**
 
@@ -67,8 +67,8 @@
 
    **作用：**
 
-   1、防止重复加载同一个`.class`。
-   2、保证核心`.class`不能被篡改
+   1. 防止重复加载同一个`.class`
+   2. 保证核心`.class`不能被篡改
 
 ### Java 内存模型
 
@@ -150,23 +150,23 @@
 
    **多个原子性的操作合并到一起没有原子性**
 
-   **保证方式：**
+   ****
 
    - Synchronized
 
    - JUC Lock
 
-2.  **可见性**
+2. **可见性**
 
-   **保证方式：**
+   ****
 
    - volatile:在JMM模型上实现MESI协议
    - Synchronized
    - JUC Lock
 
-3.  **有序性**
+3. **有序性**
 
-   **保证方式：**
+   ****
 
    - volatile ：volatile 修饰的变量顺序不变
    - Synchronized ： 加锁的代码顺序不变
