@@ -162,8 +162,11 @@
         </property>
    ```
 
-
 ### 开远程连接
+
+```
+http://10.10.10.221:8088/ws/v1/cluster/apps/application_1584368766102_0067/state
+```
 
 nohup hive --service hiveserver2 &
 
@@ -249,3 +252,12 @@ org.apache.hadoop.security.authorize.AuthorizationException): User: root is not 
        <value>-Xmx2048m</value>
    </property>
    ```
+
+4. Exception in thread "HiveServer2-Handler-Pool: Thread-72" java.lang.OutOfMemoryError: GC overhead limit exceeded(HiveServer2 关闭了)
+
+    ```JAVA
+   // hive-env.sh
+   export HADOOP_HEAPSIZE=2048
+    ```
+
+   jstat -gcutil [pid] 5000  // 5 秒 打印一次内存使用情况 
