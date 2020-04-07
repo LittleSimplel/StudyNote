@@ -14,8 +14,6 @@
 
 ​		**location**：用于匹配网页位置
 
-
-
 ### 部分详解
 
 #### 全局块
@@ -38,3 +36,40 @@ worker_rlimit_nofile 65535;
 - **pid**  进程pid文件
 - **worker_rlimit_nofile**
 
+### events块
+
+```sh
+events
+{
+    use epoll;
+
+    worker_connections 65535;
+
+    keepalive_timeout 60;
+
+    client_header_buffer_size 4k;
+
+    open_file_cache max=65535 inactive=60s;
+    
+    open_file_cache_valid 80s;
+
+    open_file_cache_min_uses 1;
+    
+    open_file_cache_errors on;
+}
+```
+
+- **use **事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ] ,linux建议epoll
+- **worker_connections**  单个进程最大连接数（最大连接数=连接数*进程数） 理论上每台nginx服务器的最大连接数为 65535
+
+- **keepalive_timeout**  keepalive超时时间
+
+- **client_header_buffer_size ** 客户端请求头部的缓冲区大小,根据你的系统分页大小(命令：getconf PAGESIZE)来设置,设置为“系统分页大小”的整倍数。
+
+- **open_file_cache_valid** 这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件数一致，inactive是指经过多长时间文件没被请求后删除缓存
+
+- **open_file_cache_valid** 这个是指多长时间检查一次缓存的有效信息。默认值: 60s 使用字段:http, server, location 这个指令指定了何时需要检查open_file_cache中缓存项目的有效信息.
+
+- **open_file_cache_min_uses** open_file_cache指令中的inactive参数时间内文件的最少使用次数，如果超过这个数字，文件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive时间内一次没被使用，它将被移除。 默认值:open_file_cache_min_uses 1 使用字段:http, server, location  这个指令指定了在open_file_cache指令无效的参数中一定的时间范围内可以使用的最小文件数,如果使用更大的值,文件描述符在cache中总是打开状态.
+
+- **open_file_cache_errors **open_file_cache_errors on | off 默认值:open_file_cache_errors off 使用字段:http, server, location 这个指令指定是否在搜索一个文件是记录cache错误
