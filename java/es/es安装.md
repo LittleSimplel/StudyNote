@@ -82,3 +82,69 @@ error msg : "Content-Type header [application/x-www-form-urlencoded] is not supp
 - ik_smart 最细粒度划分
 
 ##### 自定义分词
+
+#### 文档（pdf,doc）检索
+
+1. 安装 ingest-attachment插件
+
+   `./bin/elasticsearch-plugin install ingest-attachment`
+
+2. 新建管道
+
+   ```java
+   PUT _ingest/pipeline/attachment
+   {
+     "description": "pdf测试管道",
+     "processors": [
+       {
+         "attachment": {
+           "field": "data"
+         }
+         "remove": {    
+          "field": "data"  // 导入后删除
+         }
+         
+       }
+     ]
+   }
+   ```
+
+3. 使用管道
+
+   ```java
+   PUT my_index/_doc/my_id?pipeline=attachment
+   //base64数据
+   {
+     "data": "e1xydGYxXGFuc2kNCkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0DQpccGFyIH0=" ,
+     "url":"www.dsdff.cn"  // 自定义字段 文档路径
+   }
+   ```
+
+4. 生成的数据
+
+   ```java
+   {
+     "attachment": {
+       "content_type": "application/rtf",
+       "language": "ro",
+       "content": "Lorem ipsum dolor sit amet",
+       "content_length": 28
+     }
+   }
+   ```
+
+5.  查询
+
+   ```java
+   GET pdf_index/_doc/_search/
+   {
+     "query": {
+       "match": {
+         "attachment.content": "dolor "
+       }
+     }
+   }
+   ```
+
+   
+
