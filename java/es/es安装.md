@@ -25,6 +25,28 @@
 
 3. 重启es容器 `docker restart es`
 
+##### 修改系统max_map_count数
+
+```java
+1.切换到root用户，执行命令：
+
+　　sysctl -w vm.max_map_count=262144
+
+2.查看结果：
+
+　　sysctl -a|grep vm.max_map_count
+
+3.显示：
+
+　　vm.max_map_count = 262144
+
+永久解决办法
+
+　　在/etc/sysctl.conf文件最后添加一行：vm.max_map_count=262144
+
+　　重启虚拟机
+```
+
 ##### head 访问错误
 
 status：406 
@@ -60,7 +82,7 @@ error msg : "Content-Type header [application/x-www-form-urlencoded] is not supp
 
 2. 进入es-head 容器`docker exec -it es-head /bin/bash`
 
-3. 安装./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.4.1/elasticsearch-analysis-ik-7.4.1.zip
+3. 安装./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.4.0/elasticsearch-analysis-ik-6.4.0.zip
 
 4. 查看 plugin 目录下 是否有 analysis-ik
 
