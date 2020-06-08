@@ -45,6 +45,8 @@
 　　在/etc/sysctl.conf文件最后添加一行：vm.max_map_count=262144
 
 　　重启虚拟机
+http.cors.enabled: true
+http.cors.allow-origin: "*"
 ```
 
 ##### head 访问错误
