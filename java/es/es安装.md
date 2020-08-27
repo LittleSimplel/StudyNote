@@ -1,16 +1,10 @@
 ### Docker安装
 
-#### es
+#### es安装
 
 1. `docker pull elasticsearch:7.4.1`
 
 2. `docker run --name=es -d -p 9200:9200 -p 9300:9300 docker.io/elasticsearch:7.4.1`
-
-#### head
-
-1. `docker pull mobz/elasticsearch-head:5`
-
-2. `docker run -d -p 9100:9100 docker.io/mobz/elasticsearch-head:5`
 
 ##### **es 跨域配置**
 
@@ -44,10 +38,13 @@
 
 　　在/etc/sysctl.conf文件最后添加一行：vm.max_map_count=262144
 
-　　重启虚拟机
-http.cors.enabled: true
-http.cors.allow-origin: "*"
+重启虚拟机
 ```
+
+#### head安装
+
+1. `docker pull mobz/elasticsearch-head:5`
+2. `docker run -d -p 9100:9100 docker.io/mobz/elasticsearch-head:5`
 
 ##### head 访问错误
 
@@ -78,7 +75,7 @@ error msg : "Content-Type header [application/x-www-form-urlencoded] is not supp
 
 4. 重启es_head容器 `docker restart es_head`
 
-#### ik中文分词器
+#### ik中文分词器安装
 
 1.  查看ik 和es 对应版本 <https://github.com/medcl/elasticsearch-analysis-ik/releases>
 
