@@ -6,6 +6,7 @@
 
    ```shell
    mkdir -p /root/docker/mysql/conf && mkdir -p /root/docker/mysql/data
+   mkdir -p /root/docker/mysql/mysql-files
    ```
 
 3. 创建自定义bridge模式指定网段(为docker容器内部通信)
@@ -14,15 +15,21 @@
 
 4. 启动容器
 
+   ```shell
+   // 不指定IP
+   // docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v ///root/docker/mysql/data/:/var/lib/mysql -v ///root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -v //root/docker/mysql/mysql-files:/var/lib/mysql-files/ -itd mysql
+```
+   
    ```java
-   docker run --name mysql3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network zoonet --ip 172.18.0.2 -v /root/docker/mysql/data/:/var/lib/mysql -v /root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -itd mysql
+   // 指定IP
+   docker run --name mysql3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network zoonet --ip 172.18.0.2 -v /root/docker/mysql/data/:/var/lib/mysql -v /root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /root/docker/mysql/mysql-files:/var/lib/mysql-files/ -itd mysql
    ```
-
+   
    - -e MYSQL_ROOT_PASSWORD=root  指定root账户密码
    - --network zoonet  指定自定义的网络模式
    - --ip 172.18.0.2 为容器指定ip
 
-修改配置文件：
+**修改容器内配置文件：**
 
 1. 做了配置文件挂载，直接修改宿主机挂载的配置文件，重启容器
 
@@ -33,7 +40,7 @@
    docker cp /root/docker/mysql/conf/my.cnf 1e1aa8dcbfb9:/etc/mysql/my.cnf 
    ```
 
-修改group by 未指定无法查询问题:
+**修改group by 未指定无法查询问题:**
 
 修改配置文件
 
@@ -42,11 +49,16 @@
 sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
 ```
 
-注意：
+**容器里连接mysql：**
+
+`mysql -h localhost -uroot -p`
+
+**注意：**
 
 ```hava
-1. 宿主的数据挂载文件第一次启动容器时要干净，再将备份的文件放到宿主的数据挂载文件
+1. 宿主的数据挂载文件第一次启动容器时要干净，再将备份的文件放到宿主的数据挂载文件（my.cnf不能为空）
 2. --net=host 将会和主机共用一个ip   ，并和主机端口冲突。
 3. 每个容器都是一个小型linux
 4. 注意：host网络模式，不用指定端口, docker ps 查看也不会显示端口号。
 ```
+
