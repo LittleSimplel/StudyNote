@@ -18,13 +18,13 @@
    ```shell
    // 不指定IP
    // docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v ///root/docker/mysql/data/:/var/lib/mysql -v ///root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -v //root/docker/mysql/mysql-files:/var/lib/mysql-files/ -itd mysql
-```
-   
-   ```java
-   // 指定IP
-   docker run --name mysql3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network zoonet --ip 172.18.0.2 -v /root/docker/mysql/data/:/var/lib/mysql -v /root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /root/docker/mysql/mysql-files:/var/lib/mysql-files/ -itd mysql
    ```
-   
+```
+​```java
+// 指定IP
+docker run --name mysql3 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --network zoonet --ip 172.18.0.2 -v /root/docker/mysql/data/:/var/lib/mysql -v /root/docker/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /root/docker/mysql/mysql-files:/var/lib/mysql-files/ -itd mysql
+```
+
    - -e MYSQL_ROOT_PASSWORD=root  指定root账户密码
    - --network zoonet  指定自定义的网络模式
    - --ip 172.18.0.2 为容器指定ip
