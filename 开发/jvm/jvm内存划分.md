@@ -6,7 +6,7 @@
 
 **运行时数据区：**
 
-![运行时数据区](D:\study\github\StudyNote\jvm\img\JVM上篇配图\运行时数据区.png)
+![运行时数据区](D:\study\github\StudyNote\开发\jvm\img\JVM上篇配图\运行时数据区.png)
 
 #### 线程内存空间
 
