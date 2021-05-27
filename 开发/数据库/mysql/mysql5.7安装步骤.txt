@@ -1,0 +1,35 @@
+1. 配置环境变量
+2. 在mysql安装目录下创建data文件夹和my.ini文件
+在my.ini加入一下内容
+[mysql]
+# 设置mysql客户端默认字符集
+#default-character-set=utf8 
+[mysqld]
+#设置3306端口
+port = 3306 
+# 设置mysql的安装目录
+basedir=D:\pro\mysql\mysql-5.7.28
+# 设置mysql数据库的数据的存放目录
+datadir=D:\pro\mysql\mysql-5.7.28\data
+# 允许最大连接数
+# max_connections=200
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+# character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 跳过权限验证的问题
+# skip-grant-tables
+3.切换到mysql 的bin目录，执行：mysqld --initialize
+  - 解决msvcr120.dll丢失问题：运行vc_redist.x64.exe（2013版）
+4.运行：mysqld --install   // Service successfully installed.
+5.运行：net start mysql       //  启动服务
+6.登陆：mysql -uroot -p                     // QVom&itXy5yo 默认密码在你.err文件中
+7.修改密码 ：
+第一次改密码：alter user user() identified by 'zyd@yljz2021*@#MYsql';
+update mysql.user set authentication_string=password('zyd@yljz2021*@#MYsql') where user='root';
+8.开启远程登陆：
+开启远程连接
+- root 用户名
+- % 所有人都可以访问
+- password 密码
+GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'zyd@yljz2021*@#MYsql' WITH GRANT OPTION;
