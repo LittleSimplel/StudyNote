@@ -1,0 +1,17 @@
+-- 清理插件(刚安装的jenkins无插件)
+cd /var/lib/jenkins/plugins/
+rm -rf plugin*
+/etc/init.d/jenkins restart
+
+-- 卸载jenkins
+service jenkins stop
+yum clean all
+yum -y remove jenkins
+rm -rf /var/cache/jenkins
+rm -rf /var/lib/jenkins/
+
+-- 下载地址替换
+sed -i 's/http:\/\/updates.jenkinsci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' default.json 
+sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' default.json
+
+-- 

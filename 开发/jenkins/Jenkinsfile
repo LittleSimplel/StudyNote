@@ -1,0 +1,54 @@
+//工程名
+def projectName = "tensquare_zuul"
+def tag = "latest"
+def harbor_url = "10.10.10.221:85"
+def harbor_user = "admin"
+def harbor_password = "Harbor12345"
+def harbor_base_name = "test"
+def harbor_auth = "accccef4-eb2b-4c0b-8ad7-6a3bee3da679"
+def port = "10020"
+
+node {
+   stage('拉取代码') {
+      echo '拉取代码.....'
+      checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '0e9c0be4-0ddc-4983-b046-2509c928a1af', url: 'http://10.10.10.221:82/root/docker_test.git']]])
+   }
+
+    stage('编译，安装公共子工程') {
+         echo '编译，安装公共子工程.....'
+      // sh "mvn clean install"
+         sh "mvn -f tensquare_common clean install"
+      }
+
+       stage('编译，打包微服务工程，上传镜像') {
+             echo '编译，打包微服务工程，上传镜像'
+             sh "mvn -f ${projectName} clean package dockerfile:build"
+             echo '生成镜像完成'
+
+             echo '对镜像打上标签'
+             sh "docker tag ${projectName}:${tag} ${harbor_url}/${harbor_base_name}/${projectName}:${tag}"
+
+             //把镜像推送到Harbor
+             echo '把镜像推送到Harbor'
+             withCredentials([usernamePassword(credentialsId: "${harbor_auth}", passwordVariable: 'password', usernameVariable: 'username')]) {
+                 //登录到Harbor
+                 sh "docker login -u ${username} -p ${password} ${harbor_url}"
+                 //镜像上传
+                 sh "docker push ${harbor_url}/${harbor_base_name}/${projectName}:${tag}"
+                 sh "echo 镜像上传成功"
+             }
+             //删除本地镜像
+             echo '删除本地镜像'
+             sh "docker rmi -f ${projectName}:${tag}"
+             sh "docker rmi -f ${harbor_url}/${harbor_base_name}/${projectName}:${tag}"
+
+             echo '开始远程部署'
+             sh "ssh 10.10.10.243 'sh /deploy.sh ${harbor_url} ${harbor_base_name} ${projectName} ${tag} ${port}'"
+             //sshPublisher(publishers: [sshPublisherDesc(configName: 're_dploy_host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /deploy.sh $harbor_url $harbor_base_name $projectName $tag $port', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+        }
+
+
+
+
+
+}
