@@ -1,0 +1,4 @@
+1.docker服务启动不了？
+查看
+vi /etc/docker/daemon.json
+json格式是否正确
