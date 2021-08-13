@@ -97,10 +97,10 @@ replicaof  masterip masterport
 [root@zyd-hd-01 redis]# make
 # 启动服务端
 [root@zyd-hd-01 redis]# cd src
-[root@zyd-hd-01 redis]# ./redis-server ../redis.conf
+[root@zyd-hd-01 src]# ./redis-server ../redis.conf
 # 启动客户端
 [root@zyd-hd-01 redis]# cd src
-[root@zyd-hd-01 redis]# ./redis-cli
+[root@zyd-hd-01 src]# ./redis-cli
 # 配置主从复制
 # 复制配置文件为redis1.conf然后修改对应的信息
 #1.port
@@ -113,6 +113,16 @@ replicaof  masterip masterport
 ```
 
 #### redis主从复制（哨兵模式）
+
+```shell
+# 修改sentinel.conf 配置文件
+#sentinel monitor 被监控的名称 host port 1
+#最后一个数字的意思是有几台 Sentinel 发现有问题，就会发生故障转移，例如 配置为2，代表至少有2个 Sentinel 节点认为主节点不可达，那么这个不可达的判定才是客观的。对于设置的越小，那么达到下线的条件越宽松，反之越严格。一般建议将其设置为 Sentinel 节点的一半加1
+sentinel monitor myredis 127.0.0.1 6379 1
+[root@zyd-hd-01 redis]# vi sentinel.conf
+[root@zyd-hd-01 redis]# cd src
+[root@zyd-hd-01 src]# ./redis-server ../sentinel.conf --sentinel
+```
 
 #### redis cluster
 
