@@ -1,0 +1,334 @@
+{
+  "properties": {
+	"wcmmetatablefigureid": {
+      "type": "long"
+    },
+	
+	"dctitle": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    
+    "dcdescriptiona": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dcdescription": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"xtworkunit": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcsubjectclc": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp2": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp3": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtsubmitter": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp1": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"crtime": {
+      "type": "date"
+    },
+	
+	"xtawards": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcsource": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dcdatee": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtworks": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"picdescription": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dctypes": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcdescriptionh": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dctyper": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctitlea": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtbirthplace": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctypel": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcdates": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dccoverages": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dccoveraget": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"picurl": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"metadataid": {
+      "type": "long"
+    },
+	
+	"xtproject": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname2": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtnationality": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname1": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtethnicity": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtrank": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctype": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtlevel": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtprofession": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtsex": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    }, 
+	
+	"channelid": {
+      "type": "long"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+	"template": "hoding",
+	"settings": {
+		"index": {
+			"refresh_interval": "1s",
+			"number_of_shards": "5",
+			"provided_name": "xtabd",
+			"creation_date": "1563196130944",
+			"store": {
+				"type": "fs"
+			},
+			"number_of_replicas": "1",
+			"uuid": "mjcanVcCTEqOaN4Pd7l-VA",
+			"version": {
+				"created": "5060899"
+			}
+		}
+	},
+	"mappings": {
+		"hoding": {
+			"properties": {
+				"author": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				"subject": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"isbn": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"booktype": {
+					"type": "long"
+				},
+				"title": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				"type": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"@timestamp": {
+					"type": "date"
+				},
+				"issn": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"orglocal": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"@version": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"classno": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"publisher": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				"barcode": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"bookrecno": {
+					"type": "long"
+				},
+				"typename": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				"pubdate": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				}
+			}
+		}
+	}
+}

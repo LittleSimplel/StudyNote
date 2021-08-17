@@ -1,0 +1,92 @@
+{
+  "properties": {
+	"title": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    
+    "description": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    "crtime": {
+      "type": "date"
+    },
+    "source": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    "descriptionh": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    "typer": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+    "subjectk": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+    "descriptiona": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    "coverages": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+    "coveraget": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+    "picurl": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+    "wcmmetatableorganizationid": {
+      "type": "long"
+    },
+    "xtlevel": {
+      "type": "string",
+      "index": "not_analyzed"
+    },
+	"cname": {
+      "type": "string",
+      "index": "not_analyzed"
+    },
+	"classname": {
+      "type": "string",
+      "index": "not_analyzed"
+    },
+	"classname1": {
+      "type": "string",
+      "index": "not_analyzed"
+    }
+  }
+}

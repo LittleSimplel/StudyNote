@@ -1,0 +1,280 @@
+{
+  "properties": {
+	"dctitle": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+    
+    "dcdescriptiona": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+    "dcdescriptionc": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	 "dcdescription": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dcdescriptionh": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"dcsource": {
+      "analyzer": "ik_max_word",
+      "type": "text"
+    },
+	
+	"temp2": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp3": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"xtsubmitter": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp1": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+    "crtime": {
+      "type": "date"
+    },
+	
+	"dcformatf": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcpublisher": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctyper": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctypel": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname4": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dccreator1": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname3": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dccoverages": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctypem": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dccoveraget": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctypec": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp7": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname2": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp4": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname1": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"temp5": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"classname": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dctype": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"dcsubjectk": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "ignore_above": 256,
+          "type": "keyword"
+        }
+      }
+    },
+	
+	"metadataid": {
+      "type": "long"
+    },
+	
+	"channelid": {
+      "type": "long"
+    },
+	
+    "wcmmetatablecharacterid": {
+      "type": "long"
+    }
+    
+  }
+}

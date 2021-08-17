@@ -1,0 +1,214 @@
+{
+	"template": "videoInfo",
+	"settings": {
+		"index": {
+			"refresh_interval": "1s",
+			"number_of_shards": "5",
+			"provided_name": "xtabd",
+			"creation_date": "1563196130944",
+			"store": {
+				"type": "fs"
+			},
+			"number_of_replicas": "1",
+			"uuid": "mjcanVcCTEqOaN4Pd7l-VA",
+			"version": {
+				"created": "5060899"
+			}
+		}
+	},
+	"mappings": {
+		"videoInfo": {
+			"properties": {
+			
+				"typename": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"wcmmetatablevideoid": {
+					"type": "long"
+				},
+				
+				"metadataid": {
+					"type": "long"
+				},
+				
+				"channelid": {
+					"type": "long"
+				},
+				
+				"cruser": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				
+				"crtime": {
+					"type": "date"
+				},
+				
+				
+				"title": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				
+				"description": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				
+				"status": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"publishedtime": {
+					"type": "date"
+				},
+				
+				"catalogid": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"subtitle": {
+					"analyzer": "ik_max_word",
+					"type": "text"
+				},
+				
+				"createtime": {
+					"type": "date"
+				},
+				
+				"id": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"sourcefrom": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"imagepath": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"seriestotal": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"shoottime": {
+					"type": "date"
+				},
+				
+				"producingarea": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"mainplayer": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"director": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"content": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"djl": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				},
+				
+				"@timestamp": {
+					"type": "date"
+				},
+
+				"@version": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"ignore_above": 256,
+							"type": "keyword"
+						}
+					}
+				}
+			}
+		}
+	}
+}
