@@ -15,3 +15,15 @@ sed -i 's/http:\/\/updates.jenkinsci.org\/download/https:\/\/mirrors.tuna.tsingh
 sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' default.json
 
 -- 
+-- 下载docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+或者手动下载文件：
+https://github.com/docker/compose/releases
+将文件上传到/usr/local/bin/ 目录下，重命名为docker-compose，修改文件权限：
+chmod +x /usr/local/bin/docker-compose
+
+
+{
+"registry-mirrors": ["https://0yqwhtwp.mirror.aliyuncs.com"],
+"insecure-registries": ["192.168.10.45:85"]
+}
