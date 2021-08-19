@@ -1,28 +1,29 @@
-//工程名
-def projectName = "tensquare_zuul"
+def projectName = "zyd-xtabd-back-center"
+def projectPath = "zyd/zyd-xtabd-back-center"
+def port = "9028"
+def ssh_deploy = "192.168.10.43"
+
 def tag = "latest"
-def harbor_url = "10.10.10.221:85"
+def harbor_url = "192.168.10.45:85"
 def harbor_user = "admin"
 def harbor_password = "Harbor12345"
-def harbor_base_name = "test"
-def harbor_auth = "accccef4-eb2b-4c0b-8ad7-6a3bee3da679"
-def port = "10020"
+def harbor_base_name = "hntsg"
+def harbor_auth = "bdf1afdc-6384-48d3-becc-eaba2bc522f1"
 
 node {
-   stage('拉取代码') {
-      echo '拉取代码.....'
-      checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '0e9c0be4-0ddc-4983-b046-2509c928a1af', url: 'http://10.10.10.221:82/root/docker_test.git']]])
-   }
-
-    stage('编译，安装公共子工程') {
+    def mvnHome
+    stage('git') { // for display purposes
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '181b2f5f-0615-4964-8ecf-a712b4f92247', url: 'https://codehub.devcloud.huaweicloud.com/hntsgdzdsjzhptxm00002/zyd-xtabd-java.git']]])
+    }
+        stage('编译，安装公共子工程') {
          echo '编译，安装公共子工程.....'
       // sh "mvn clean install"
-         sh "mvn -f tensquare_common clean install"
+         sh "mvn -f zyd/zyd-xtabd-entity clean install"
+         sh "mvn -f zyd/zyd-xtabd-common clean install"
       }
-
-       stage('编译，打包微服务工程，上传镜像') {
+        stage('编译，打包微服务工程，上传镜像') {
              echo '编译，打包微服务工程，上传镜像'
-             sh "mvn -f ${projectName} clean package dockerfile:build"
+             sh "mvn -f ${projectPath} clean package -Dmaven.test.skip=true dockerfile:build"
              echo '生成镜像完成'
 
              echo '对镜像打上标签'
@@ -43,12 +44,8 @@ node {
              sh "docker rmi -f ${harbor_url}/${harbor_base_name}/${projectName}:${tag}"
 
              echo '开始远程部署'
-             sh "ssh 10.10.10.243 'sh /deploy.sh ${harbor_url} ${harbor_base_name} ${projectName} ${tag} ${port}'"
-             //sshPublisher(publishers: [sshPublisherDesc(configName: 're_dploy_host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /deploy.sh $harbor_url $harbor_base_name $projectName $tag $port', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+             sh "ssh ${ssh_deploy} 'sh /deploy.sh ${harbor_url} ${harbor_base_name} ${projectName} ${tag} ${port}'"
+			 echo '远程部署结束'
+             // sshPublisher(publishers: [sshPublisherDesc(configName: 're_dploy_host', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh /deploy.sh $harbor_url $harbor_base_name $projectName $tag $port', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         }
-
-
-
-
-
 }
