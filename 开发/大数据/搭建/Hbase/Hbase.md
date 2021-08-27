@@ -145,12 +145,4 @@ rmr /hbase
 
 16020
 
-192.168.0.188
-
-kafka-console-consumer.sh --bootstrap-server 192.168.0.188:9092 --topic buryPointDataPvUvAnalyse
-
-kafka-console-producer.sh --broker-list 192.168.0.188:9092 --topic buryPointDataPvUvAnalyse
-
-
-
-kafka-topics.sh --describe --zookeeper 192.168.0.188:2181
+Java通过 zookeep 获取hbase的连接信息，返回的是hbase主机名 hostname  
