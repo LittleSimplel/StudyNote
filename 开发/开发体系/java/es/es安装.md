@@ -4,7 +4,9 @@
 
 1. `docker pull elasticsearch:7.4.1`
 
-2. `docker run --name=es -d -p 9200:9200 -p 9300:9300 docker.io/elasticsearch:7.4.1`
+2. `docker run --name=es -d -p 9200:9200 -p 9300:9300 docker.io/elasticsearch:7.5.2`
+
+   单节点启动：加 -e "discovery.type=single-node"
 
 ##### **es 跨域配置**
 
