@@ -9,7 +9,7 @@
 5. 将 node 加入环境变量中，修改 vi /etc/profile 文件
 
    ```shell
-   export NODE_HOME=/usr/local/node/node-v12.18.3-linux-x64
+   export NODE_HOME=/home/dyyg/install/node-v12.18.3-linux-x64
    export PATH=$NODE_HOME/bin:$PATH
    ```
 
