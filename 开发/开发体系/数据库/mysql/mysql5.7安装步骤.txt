@@ -25,7 +25,7 @@ explicit_defaults_for_timestamp=true
 4.运行：mysqld --install   // Service successfully installed.
  (删除之前的mysql服务sc query mysql  ； sc delete mysql)
 5.运行：net start mysql       //  启动服务
-6.登陆：mysql -uroot -p                     // QVom&itXy5yo 默认密码在你.err文件中
+6.登陆：mysql -uroot -p oYy:iPpUy7dk                   // oYy:iPpUy7dk 默认密码在你.err文件中
 7.修改密码 ：
 第一次改密码：alter user user() identified by 'zyd@yljz2021*@#MYsql';
 update mysql.user set authentication_string=password('zyd@yljz2021*@#MYsql') where user='root';
