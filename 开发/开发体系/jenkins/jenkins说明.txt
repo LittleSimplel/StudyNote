@@ -22,7 +22,7 @@ https://github.com/docker/compose/releases
 将文件上传到/usr/local/bin/ 目录下，重命名为docker-compose，修改文件权限：
 chmod +x /usr/local/bin/docker-compose
 
---- 
+--- docker镜像
 vi /etc/docker/daemon.json
 {
 "registry-mirrors": ["https://0yqwhtwp.mirror.aliyuncs.com"],
